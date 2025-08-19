@@ -1,69 +1,62 @@
-# React + TypeScript + Vite
+# React Flexible InputField Component
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project implements a **flexible, accessible, and responsive InputField component** in React + TypeScript.  
+It is built with **Vite** and styled using **Tailwind CSS**, with tests written in **Vitest + React Testing Library**.  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- **Label, placeholder, helper text, error message**
+- **Validation States**
+  - Disabled  
+  - Invalid (error state with message)  
+  - Loading (with spinner, transitions to success)  
+- **Variants**: `filled`, `outlined`, `ghost`
+- **Sizes**: `small`, `medium`, `large`
+- **Optional Controls**
+  - Clear button  
+  - Password toggle (Show/Hide)  
+- **Accessibility**: ARIA labels, roles, keyboard-friendly
+- **Themes**: Light & Dark mode support
+- **Responsive design** (mobile-first, scales well on all devices)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📂 Project Structure
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+src/
+├── components/
+│ ├── InputField.tsx # Main component
+│ └── InputField.test.tsx # Unit tests
+├── App.tsx # Demo page with example states
+├── main.tsx # Entry point
+└── index.css # Tailwind setup
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone repo
+```sh
+git clone https://github.com/Anjali536/react-input-field.git
+cd react-input-field
 ```
+## Install Dependencies 
+npm install
+npm run dev
+npm run test
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Tests
+Renders label and placeholder
+Disabled state
+Invalid state (error message + aria-invalid)
+Loading spinner state
+onChange functionality
+Password toggle (show/hide)
+Clear button interaction
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Frameworks: Vitest + React Testing Library + Jest-DOM
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+
